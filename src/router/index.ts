@@ -7,9 +7,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      meta: {
+        title: 'Muhammad Reyhan - Cryptbrn'
+      },
       component: HomeView
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  document.title = <string>to.meta.title;
+  next();
+});
 
 export default router
